@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -26,6 +27,7 @@ class HomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: Size(411, 823));
     var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
@@ -55,7 +57,7 @@ class HomeWidget extends StatelessWidget {
                           Container(
                             height: constraints.maxHeight * .4,
                             color: Color(0xff84A6D7),
-                            child: header(),
+                            child: header(context),
                           ),
                           Expanded(
                             child: Container(
@@ -124,15 +126,16 @@ Widget textSection({String text, Color color}) {
     padding: const EdgeInsets.symmetric(horizontal: 20),
     child: Text(
       text,
+      textScaleFactor: ScreenUtil().scaleText,
       style: GoogleFonts.lato(
-        fontSize: 12,
+        fontSize: 10,
         color: color,
       ),
     ),
   );
 }
 
-Widget header() {
+Widget header(BuildContext context) {
   return Container(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -157,18 +160,14 @@ Widget header() {
           padding: const EdgeInsets.only(top: 5),
           child: Text(
             "Caio Cesar",
-            style: GoogleFonts.bebasNeue(
-              color: Colors.white,
-              fontSize: 25
-            ),
+            textScaleFactor: ScreenUtil().scaleText,
+            style: GoogleFonts.bebasNeue(color: Colors.white, fontSize: 25),
           ),
         ),
         Text(
           "Teixeira",
-          style: GoogleFonts.abel(
-            color: Colors.white,
-            fontSize: 35
-          ),
+          textScaleFactor: ScreenUtil().scaleText,
+          style: GoogleFonts.abel(color: Colors.white, fontSize: 15),
         ),
       ],
     ),
