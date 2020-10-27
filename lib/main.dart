@@ -33,7 +33,7 @@ class HomeWidget extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [
+            List: [
               Color(0xff78B4BC),
               Color(0xff84A6D7),
             ],
